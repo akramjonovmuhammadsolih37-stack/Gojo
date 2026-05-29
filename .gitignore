@@ -1,0 +1,19 @@
+# Maxfiy ma'lumotlar — HECH QACHON git ga yuklamang!
+.env
+*.session
+*.session-journal
+gojo_userbot.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Logs
+*.log
+panel.log
