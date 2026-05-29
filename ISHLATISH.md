@@ -1,63 +1,34 @@
-# 🚀 GOJO-USERBOT — Ishga tushirish
+# GOJO-USERBOT — Render Deploy Qo'llanmasi
 
-## Lokal (o'z kompyuterda)
+## 1. SESSION_STRING olish
 
-```bash
-# 1. Kutubxonalarni o'rnatish
-pip install -r requirements.txt
-
-# 2. .env fayl yaratish
-cp .env.example .env
-
-# 3. Session olish
+Kompyuterda bir marta ishga tushiring:
+```
+pip install telethon
 python get_session.py
-# Chiqgan SESSION_STRING ni .env ga yozing
-
-# 4. Serverni ishga tushirish
-python server.py
-
-# 5. Brauzerda oching
-# http://localhost:5000
 ```
+Telefonga kelgan kodni kiriting — SESSION_STRING chiqadi.
 
-**Login:** admin / (terminal da chiqgan parol)
+## 2. Render.com da deploy
 
----
+1. GitHub ga kodlarni yuklang
+2. render.com ga kiring
+3. **New > Background Worker** tanlang (Web Service EMAS!)
+4. GitHub repo ni ulang
+5. **Environment Variables** ga qo'shing:
+   - `API_ID` = my.telegram.org dan
+   - `API_HASH` = my.telegram.org dan
+   - `SESSION_STRING` = get_session.py dan
 
-## Hosting (Railway / Render / VPS)
+## 3. Buyruqlar
 
-### Railway / Render
-```
-Start command: python server.py
-Environment variables:
-  ADMIN_PASSWORD = (o'zingizning parolingiz)
-  SESSION_STRING = (get_session.py dan)
-```
+| Buyruq | Vazifa |
+|--------|--------|
+| `.alive` | Bot tirikmi? |
+| `.spam 1 5 salom` | 5 marta xabar |
+| `.tts uz matn` | Ovozga aylantirish |
+| `.help` | Barcha buyruqlar |
 
-### VPS (Ubuntu)
-```bash
-pip install -r requirements.txt
-cp .env.example .env
-nano .env  # to'ldiring
+## 4. Yangi plugin qo'shish
 
-# Fon rejimida ishlatish
-nohup python server.py > server.log 2>&1 &
-
-# Yoki screen bilan
-screen -S gojo
-python server.py
-# Ctrl+A, D — chiqish
-```
-
----
-
-## Admin panel
-
-1. `http://server_ip:5000` ga kiring
-2. Login: `admin` + terminelda chiqgan parol
-3. Admin panel → yuqori chap menyu
-
-## Yangi foydalanuvchi
-
-Ro'yxatdan o'tish tab → username + parol (min 6 belgi)
-
+`zeus/` papkasiga `.py` fayl qo'ying — avtomatik yuklanadi!
